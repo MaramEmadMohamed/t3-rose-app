@@ -352,8 +352,10 @@
    colors in light and dark mode, so they have no semantic token. */
 @theme inline {
   --color-maroon-50: var(--maroon-50);
+  --color-maroon-600: var(--maroon-600);
   --color-maroon-700: var(--maroon-700);
   --color-maroon-800: var(--maroon-800);
+  --color-soft-pink-200: var(--soft-pink-200);
   --color-soft-pink-300: var(--soft-pink-300);
 }
 

@@ -1,3 +1,13 @@
+import {
+  ClipboardList,
+  Gift,
+  Headset,
+  House,
+  Info,
+  PartyPopper,
+  type LucideIcon,
+} from "lucide-react";
+
 export type NavLinkKey =
   | "home"
   | "products"
@@ -12,15 +22,16 @@ export type NavLinkKey =
 export type NavLink = {
   labelKey: NavLinkKey;
   href: string;
+  icon?: LucideIcon;
 };
 
 export const MAIN_NAV_LINKS: NavLink[] = [
-  { labelKey: "home", href: "/" },
-  { labelKey: "products", href: "/products" },
-  { labelKey: "categories", href: "/categories" },
-  { labelKey: "occasions", href: "/occasions" },
-  { labelKey: "contact", href: "/contact" },
-  { labelKey: "about", href: "/about" },
+  { labelKey: "home", href: "/", icon: House },
+  { labelKey: "products", href: "/products", icon: Gift },
+  { labelKey: "categories", href: "/categories", icon: ClipboardList },
+  { labelKey: "occasions", href: "/occasions", icon: PartyPopper },
+  { labelKey: "contact", href: "/contact", icon: Headset },
+  { labelKey: "about", href: "/about", icon: Info },
 ];
 
 export const FOOTER_NAV_LINKS: NavLink[] = [

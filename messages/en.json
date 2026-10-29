@@ -28,6 +28,26 @@
     "faqs": "FAQs"
   },
 
+  "Header": {
+    "logoAlt": "Rose home",
+    "searchLabel": "Search products",
+    "searchPlaceholder": "What awesome gift are you looking for?",
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "emailPlaceholder": "user@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "********",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "forgotPassword": "Forgot your password?",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "notifications": "Notifications",
+    "switchLanguage": "العربية",
+    "mainNavigation": "Main navigation"
+  },
+
   "Footer": {
     "logoAlt": "Rose",
     "brandName": "Rose E-Commerce App",
