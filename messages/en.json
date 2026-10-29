@@ -43,9 +43,24 @@
     "forgotPassword": "Forgot your password?",
     "wishlist": "Wishlist",
     "cart": "Cart",
-    "notifications": "Notifications",
     "switchLanguage": "العربية",
     "mainNavigation": "Main navigation"
+  },
+
+  "Notifications": {
+    "bellLabel": "Notifications",
+    "bellLabelWithCount": "Notifications, {count} unread",
+    "title": "Notifications",
+    "titleWithCount": "Notifications ({count})",
+    "clearAll": "Clear all notifications",
+    "markAllAsRead": "Mark all as read",
+    "markAsRead": "Mark as read",
+    "delete": "Delete notification",
+    "optionsLabel": "Notification options",
+    "empty": "No notifications to display.",
+    "loading": "Loading notifications…",
+    "loadError": "We couldn't load your notifications.",
+    "actionError": "Something went wrong. Please try again."
   },
 
   "Footer": {

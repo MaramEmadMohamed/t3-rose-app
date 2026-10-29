@@ -1,7 +1,9 @@
-import { Bell, Heart, ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+
+import { NotificationsMenu } from "./notifications/notifications-menu";
 
 const ICON_LINK_CLASS_NAME =
   "rounded-md p-1 transition-colors hover:text-maroon-700 focus-visible:outline-2 focus-visible:outline-maroon-700 dark:hover:text-soft-pink-300 dark:focus-visible:outline-soft-pink-300";
@@ -18,9 +20,7 @@ export function UserActions() {
       <Link href="/cart" aria-label={t("cart")} className={ICON_LINK_CLASS_NAME}>
         <ShoppingCart aria-hidden="true" className="size-5" />
       </Link>
-      <button type="button" aria-label={t("notifications")} className={ICON_LINK_CLASS_NAME}>
-        <Bell aria-hidden="true" className="size-5" />
-      </button>
+      <NotificationsMenu triggerClassName={ICON_LINK_CLASS_NAME} />
     </div>
   );
 }

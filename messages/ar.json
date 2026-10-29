@@ -43,9 +43,24 @@
     "forgotPassword": "هل نسيت كلمة المرور؟",
     "wishlist": "المفضلة",
     "cart": "سلة التسوق",
-    "notifications": "الإشعارات",
     "switchLanguage": "English",
     "mainNavigation": "التنقل الرئيسي"
+  },
+
+  "Notifications": {
+    "bellLabel": "الإشعارات",
+    "bellLabelWithCount": "الإشعارات، {count} غير مقروءة",
+    "title": "الإشعارات",
+    "titleWithCount": "الإشعارات ({count})",
+    "clearAll": "مسح كل الإشعارات",
+    "markAllAsRead": "تعليم الكل كمقروء",
+    "markAsRead": "تعليم كمقروء",
+    "delete": "حذف الإشعار",
+    "optionsLabel": "خيارات الإشعار",
+    "empty": "لا توجد إشعارات لعرضها.",
+    "loading": "جارٍ تحميل الإشعارات…",
+    "loadError": "تعذّر تحميل الإشعارات.",
+    "actionError": "حدث خطأ ما، حاول مرة أخرى."
   },
 
   "Footer": {

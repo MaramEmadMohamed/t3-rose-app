@@ -1,3 +1,4 @@
+import { getAccessToken } from "@/lib/auth/access-token";
 import { API_BASE_URL } from "@/lib/constants/api";
 
 export class ApiError extends Error {
@@ -27,9 +28,15 @@ export async function apiRequest<TResponse>(
   path: string,
   init?: RequestInit,
 ): Promise<TResponse> {
+  const accessToken = getAccessToken();
+
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...init,
-    headers: { "Content-Type": "application/json", ...init?.headers },
+    headers: {
+      "Content-Type": "application/json",
+      ...(accessToken && { Authorization: `Bearer ${accessToken}` }),
+      ...init?.headers,
+    },
   });
 
   if (!response.ok) {
