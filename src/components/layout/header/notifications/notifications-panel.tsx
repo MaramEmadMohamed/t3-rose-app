@@ -10,6 +10,7 @@ import {
 
 import { NotificationItem } from "./notification-item";
 import { NotificationsEmptyState } from "./notifications-empty-state";
+import { PushOptIn } from "./push-opt-in";
 
 const ACTION_BUTTON_CLASS_NAME =
   "flex items-center gap-1.5 rounded-md p-1 transition-colors hover:text-maroon-700 disabled:cursor-not-allowed disabled:text-zinc-400 dark:hover:text-soft-pink-300";
@@ -105,6 +106,7 @@ export function NotificationsPanel({ unreadCount }: { unreadCount: number }) {
       </div>
 
       {renderContent()}
+      <PushOptIn />
     </section>
   );
 }

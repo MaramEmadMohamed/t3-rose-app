@@ -14,18 +14,14 @@ import {
   markAllNotificationsAsRead,
   markNotificationAsRead,
 } from "@/lib/api/notifications";
-import { getAccessToken } from "@/lib/auth/access-token";
+
+import { useIsAuthenticated } from "./use-is-authenticated";
 
 export const notificationKeys = {
   all: ["notifications"] as const,
   list: () => [...notificationKeys.all, "list"] as const,
   unreadCount: () => [...notificationKeys.all, "unread-count"] as const,
 };
-
-// Notifications belong to a user, so we only ask the API when logged in.
-function useIsAuthenticated() {
-  return Boolean(getAccessToken());
-}
 
 export function useNotifications() {
   const isAuthenticated = useIsAuthenticated();
