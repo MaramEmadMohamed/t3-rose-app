@@ -1,32 +1,370 @@
 @import "tailwindcss";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: var(--font-family);
+  --font-heading: var(--font-family);
+
+  /* ---- Brand / status colors (work with bg-, text-, border-, ring-) ---- */
+  --color-primary: var(--primary);
+  --color-primary-saturated: var(--primary-saturated);
+  --color-primary-faint: var(--primary-faint);
+  --color-primary-fade: var(--primary-fade);
+
+  --color-info: var(--info);
+  --color-info-faint: var(--info-faint);
+  --color-info-fade: var(--info-fade);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-faint: var(--secondary-faint);
+  --color-secondary-fade: var(--secondary-fade);
+
+  --color-success: var(--success);
+  --color-success-faint: var(--success-faint);
+  --color-success-fade: var(--success-fade);
+
+  --color-warning: var(--warning);
+  --color-warning-faint: var(--warning-faint);
+  --color-warning-fade: var(--warning-fade);
+
+  --color-danger: var(--danger);
+  --color-danger-saturated: var(--danger-saturated);
+  --color-danger-faint: var(--danger-faint);
+  --color-danger-fade: var(--danger-fade);
+
+  /* ---- Background neutrals: bg-plain, bg-subtle ... ---- */
+  --background-color-plain: var(--bg-plain);
+  --background-color-subtle: var(--bg-subtle);
+  --background-color-muted: var(--bg-muted);
+  --background-color-soft: var(--bg-soft);
+  --background-color-default: var(--bg-default);
+  --background-color-inverse: var(--bg-inverse);
+  --background-color-elevated: var(--bg-elevated);
+  --background-color-overlay: var(--bg-overlay);
+
+  /* ---- Text neutrals: text-plain, text-subtle ... ---- */
+  --text-color-plain: var(--text-plain);
+  --text-color-subtle: var(--text-subtle);
+  --text-color-muted: var(--text-muted);
+  --text-color-soft: var(--text-soft);
+  --text-color-default: var(--text-default);
+  --text-color-inverse: var(--text-inverse);
+
+  /* ---- Border neutrals: border-plain, border-subtle ... ---- */
+  --border-color-plain: var(--border-plain);
+  --border-color-subtle: var(--border-subtle);
+  --border-color-muted: var(--border-muted);
+  --border-color-soft: var(--border-soft);
+  --border-color-default: var(--border-default);
+  --border-color-inverse: var(--border-inverse);
+
+  /* ---- Ring (focus halo): ring-3 ring-focus / ring-3 ring-focus-danger ---- */
+  --ring-color-focus: var(--ring-default);
+  --ring-color-focus-danger: var(--ring-danger);
+
+  /* ---- Shadows ---- */
+  --shadow-subtle-sm: 0 2px 5px 0 rgb(0 0 0 / 7%);
+  --shadow-subtle: 0 4px 10px 0 rgb(0 0 0 / 7%);
+  --shadow-subtle-lg: 0 4px 18px 0 rgb(0 0 0 / 7%);
+  --shadow-soft-sm: 0 2px 5px 0 rgb(0 0 0 / 10%);
+  --shadow-soft: 0 4px 10px 0 rgb(0 0 0 / 10%);
+  --shadow-soft-lg: 0 4px 18px 0 rgb(0 0 0 / 10%);
+
+  /* ---- Radius ---- */
+  --radius-sm: 0.25rem;
+  --radius-base: 0.375rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+
+  /* ---- shadcn/ui compatibility (so generated components keep working) ---- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
-@theme {
-  --color-maroon-50: #fbeaea;
-  --color-maroon-700: #741c21;
-  --color-soft-pink-300: #ffa3b9;
+:root {
+  --white: #ffffff;
+
+  --maroon-50: #fbeaea;
+  --maroon-100: #f3c5c7;
+  --maroon-200: #ea9fa2;
+  --maroon-300: #e07a7d;
+  --maroon-400: #d75458;
+  --maroon-500: #cd2e33;
+  --maroon-600: #a6252a;
+  --maroon-700: #741c21;
+  --maroon-800: #501419;
+  --maroon-900: #2c0c10;
+  --maroon-950: #20090c;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c; /* Figma shows #dc2626 (duplicate of 600), confirm with design */
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+  --red-950: #450a0a;
+
+  --pink-50: #fff0f8;
+  --pink-100: #ffd6ec;
+  --pink-200: #ffaddc;
+  --pink-300: #ff84cb;
+  --pink-400: #ff5bba;
+  --pink-500: #f82ba9;
+  --pink-600: #d0198f;
+  --pink-700: #a41173;
+  --pink-800: #790a55;
+  --pink-900: #52043a;
+  --pink-950: #340021;
+
+  --soft-pink-50: #fff1f5;
+  --soft-pink-100: #ffe0e7;
+  --soft-pink-200: #ffc2d0;
+  --soft-pink-300: #ffa3b9;
+  --soft-pink-400: #ff85a2;
+  --soft-pink-500: #ff668b;
+  --soft-pink-600: #e65073;
+  --soft-pink-700: #cc3a5b;
+  --soft-pink-800: #b32443;
+  --soft-pink-900: #99102c;
+  --soft-pink-950: #590414;
+
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bedbff;
+  --blue-300: #8ec5ff;
+  --blue-400: #50a2ff;
+  --blue-500: #2b7fff;
+  --blue-600: #155dfc;
+  --blue-700: #1447e6; /* Figma shows #cc3a5b (typo), confirm with design */
+  --blue-800: #193cb8;
+  --blue-900: #1c398e;
+  --blue-950: #162456;
+
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d0fae5;
+  --emerald-200: #a4f4cf;
+  --emerald-300: #5ee9b5;
+  --emerald-400: #00d492;
+  --emerald-500: #00bc7d;
+  --emerald-600: #009966;
+  --emerald-700: #007a55;
+  --emerald-800: #006045;
+  --emerald-900: #004f3b;
+  --emerald-950: #002c22;
+
+  --yellow-50: #fefce8;
+  --yellow-100: #fef9c3;
+  --yellow-200: #fef08a;
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --yellow-500: #eab308;
+  --yellow-600: #ca8a04;
+  --yellow-700: #a16207;
+  --yellow-800: #854d0e;
+  --yellow-900: #713f12;
+  --yellow-950: #422006;
+
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+:root {
+  --radius: 0.5rem;
+
+  /* Background */
+  --bg-plain: var(--white);
+  --bg-subtle: var(--zinc-50);
+  --bg-muted: var(--zinc-100);
+  --bg-soft: var(--zinc-200);
+  --bg-default: var(--zinc-500);
+  --bg-inverse: var(--zinc-800);
+  --bg-elevated: rgb(0 0 0 / 20%);
+  --bg-overlay: rgb(0 0 0 / 50%);
+
+  /* Text */
+  --text-plain: var(--zinc-800);
+  --text-subtle: var(--zinc-300);
+  --text-muted: var(--zinc-400);
+  --text-soft: var(--zinc-500);
+  --text-default: var(--zinc-600);
+  --text-inverse: var(--white);
+
+  /* Border */
+  --border-plain: var(--zinc-800);
+  --border-subtle: var(--zinc-100);
+  --border-muted: var(--zinc-200);
+  --border-soft: var(--zinc-300);
+  --border-default: var(--zinc-400);
+  --border-inverse: var(--white);
+
+  /* Brand / status */
+  --primary: var(--maroon-800);
+  --primary-saturated: var(--maroon-700);
+  --primary-faint: var(--maroon-100);
+  --primary-fade: var(--maroon-50);
+
+  --info: var(--blue-600);
+  --info-faint: var(--blue-100);
+  --info-fade: var(--blue-50);
+
+  --secondary: var(--soft-pink-400);
+  --secondary-faint: var(--soft-pink-100);
+  --secondary-fade: var(--soft-pink-50);
+
+  --success: var(--emerald-500);
+  --success-faint: var(--emerald-100);
+  --success-fade: var(--emerald-50);
+
+  --warning: var(--yellow-400);
+  --warning-faint: var(--yellow-100);
+  --warning-fade: var(--yellow-50);
+
+  --danger: var(--red-600);
+  --danger-saturated: var(--red-700);
+  --danger-faint: var(--red-100);
+  --danger-fade: var(--red-50);
+
+  /* Ring */
+  --ring-default: var(--maroon-50);
+  --ring-danger: var(--red-100);
+
+  /* shadcn/ui compatibility aliases */
+  --background: var(--bg-plain);
+  --foreground: var(--text-plain);
+  --card: var(--bg-plain);
+  --card-foreground: var(--text-plain);
+  --popover: var(--bg-plain);
+  --popover-foreground: var(--text-plain);
+  --primary-foreground: var(--text-inverse);
+  --secondary-foreground: var(--text-plain);
+  --muted: var(--bg-muted);
+  --muted-foreground: var(--text-soft);
+  --accent: var(--bg-muted);
+  --accent-foreground: var(--text-plain);
+  --destructive: var(--danger);
+  --border: var(--border-muted);
+  --input: var(--border-muted);
+  --ring: var(--ring-default);
+}
+
+.dark {
+  /* Background */
+  --bg-plain: var(--zinc-700);
+  --bg-subtle: var(--zinc-800);
+  --bg-muted: var(--zinc-900);
+  --bg-soft: var(--zinc-700);
+  --bg-default: var(--zinc-600);
+  --bg-inverse: var(--zinc-50);
+  --bg-elevated: rgb(0 0 0 / 20%);
+  --bg-overlay: rgb(0 0 0 / 50%);
+
+  /* Text */
+  --text-plain: var(--zinc-50);
+  --text-subtle: var(--zinc-500);
+  --text-muted: var(--zinc-400);
+  --text-soft: var(--zinc-300);
+  --text-default: var(--zinc-200);
+  --text-inverse: var(--zinc-800);
+
+  /* Border */
+  --border-plain: var(--zinc-50);
+  --border-subtle: var(--zinc-700);
+  --border-muted: var(--zinc-800);
+  --border-soft: var(--zinc-600);
+  --border-default: var(--zinc-500);
+  --border-inverse: var(--zinc-800);
+
+  /* Brand / status */
+  --primary: var(--soft-pink-300);
+  --primary-saturated: var(--soft-pink-200);
+  --primary-faint: color-mix(in srgb, var(--soft-pink-300) 75%, transparent);
+  --primary-fade: color-mix(in srgb, var(--soft-pink-300) 25%, transparent);
+
+  --info: var(--blue-500);
+  --info-faint: color-mix(in srgb, var(--blue-500) 50%, transparent); /* Figma label says blue-900, confirm with design */
+  --info-fade: color-mix(in srgb, var(--blue-500) 25%, transparent);
+
+  --secondary: var(--maroon-600);
+  --secondary-faint: color-mix(in srgb, var(--maroon-600) 50%, transparent);
+  --secondary-fade: color-mix(in srgb, var(--maroon-600) 25%, transparent);
+
+  --success: var(--emerald-500);
+  --success-faint: color-mix(in srgb, var(--emerald-500) 50%, transparent);
+  --success-fade: color-mix(in srgb, var(--emerald-500) 25%, transparent);
+
+  --warning: var(--yellow-500);
+  --warning-faint: color-mix(in srgb, var(--yellow-500) 50%, transparent);
+  --warning-fade: color-mix(in srgb, var(--yellow-500) 25%, transparent); /* Figma label says yellow-50/25, confirm with design */
+
+  --danger: var(--red-500);
+  --danger-saturated: var(--red-400);
+  --danger-faint: color-mix(in srgb, var(--red-500) 50%, transparent);
+  --danger-fade: color-mix(in srgb, var(--red-500) 25%, transparent); /* Figma label says red-50/25, confirm with design */
+
+  /* Ring (hex values come straight from Figma) */
+  --ring-default: #473036;
+  --ring-danger: #452b2c;
+}
+
+/* Fonts: Sarabun for English, Tajawal for Arabic.
+   --font-sarabun / --font-tajawal are provided by next/font (see src/lib/fonts.ts). */
+:root {
+  --font-family: var(--font-sarabun), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[lang="ar"] {
+  --font-family: var(--font-tajawal), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Brand primitives used by the footer and header, which keep the same
+   colors in light and dark mode, so they have no semantic token. */
+@theme inline {
+  --color-maroon-50: var(--maroon-50);
+  --color-maroon-700: var(--maroon-700);
+  --color-maroon-800: var(--maroon-800);
+  --color-soft-pink-300: var(--soft-pink-300);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }

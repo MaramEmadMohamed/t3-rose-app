@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "@/shared/constants/api";
+import { API_BASE_URL } from "@/lib/constants/api";
 
 export class ApiError extends Error {
   readonly status: number;

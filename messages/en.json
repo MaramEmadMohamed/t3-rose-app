@@ -1,0 +1,47 @@
+{
+  "common": {
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode",
+      "system": "System Mode"
+    },
+    "locale": {
+      "en": "English",
+      "ar": "Arabic"
+    }
+  },
+
+  "HomePage": {
+    "title": "Welcome to Rose App",
+    "description": "Discover our beautiful collection of fresh roses."
+  },
+
+  "Navigation": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "contact": "Contact",
+    "about": "About",
+    "termsAndConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "faqs": "FAQs"
+  },
+
+  "Footer": {
+    "logoAlt": "Rose",
+    "brandName": "Rose E-Commerce App",
+    "rightsReserved": "All rights reserved | {year}",
+    "discoverTitle": "Discover our website",
+    "newsletterTitle": "Get <highlight>20%</highlight> Off Discount Coupon",
+    "newsletterSubtitle": "By subscribing to our newsletter",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter Your Email",
+    "subscribe": "Subscribe",
+    "subscribeSuccess": "You have subscribed to our newsletter",
+    "alreadySubscribed": "This email is already subscribed",
+    "genericError": "Something went wrong. Please try again.",
+    "emailRequired": "Please enter your email",
+    "emailInvalid": "Please enter a valid email address"
+  }
+}

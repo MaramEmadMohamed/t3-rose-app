@@ -1,0 +1,47 @@
+{
+  "common": {
+    "theme": {
+      "light": "الوضع الفاتح",
+      "dark": "الوضع الداكن",
+      "system": "وضع النظام"
+    },
+    "locale": {
+      "en": "الإنجليزية",
+      "ar": "العربية"
+    }
+  },
+
+  "HomePage": {
+    "title": "أهلاً بك في تطبيق روز",
+    "description": "مشروع الواجهة الأمامية الحديث الخاص بك."
+  },
+
+  "Navigation": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "contact": "تواصل معنا",
+    "about": "من نحن",
+    "termsAndConditions": "الشروط والأحكام",
+    "privacyPolicy": "سياسة الخصوصية",
+    "faqs": "الأسئلة الشائعة"
+  },
+
+  "Footer": {
+    "logoAlt": "روز",
+    "brandName": "تطبيق روز للتسوق الإلكتروني",
+    "rightsReserved": "جميع الحقوق محفوظة | {year}",
+    "discoverTitle": "اكتشف موقعنا",
+    "newsletterTitle": "احصل على كوبون خصم <highlight>20%</highlight>",
+    "newsletterSubtitle": "عند الاشتراك في نشرتنا البريدية",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشترك",
+    "subscribeSuccess": "تم اشتراكك في النشرة البريدية بنجاح",
+    "alreadySubscribed": "هذا البريد الإلكتروني مشترك بالفعل",
+    "genericError": "حدث خطأ ما، حاول مرة أخرى.",
+    "emailRequired": "من فضلك أدخل بريدك الإلكتروني",
+    "emailInvalid": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا"
+  }
+}
