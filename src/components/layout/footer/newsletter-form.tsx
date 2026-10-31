@@ -10,6 +10,8 @@ import { toast } from "sonner";
 import { ApiError } from "@/lib/api/api-client";
 import { subscribeToNewsletter } from "@/lib/api/newsletter";
 import { HTTP_STATUS } from "@/lib/constants/api";
+import { FOCUS_RING_CLASS_NAME } from "@/lib/styles/focus-ring";
+import { cn } from "@/lib/utils";
 
 import { newsletterSchema, type NewsletterValues } from "./newsletter-schema";
 
@@ -72,7 +74,7 @@ export function NewsletterForm() {
         onSubmit={form.handleSubmit(handleSubscribe)}
         className="flex flex-col gap-1.5"
       >
-        <div className="flex h-9.5 items-center justify-between rounded-full bg-zinc-600 ps-4 dark:bg-zinc-800">
+        <div className="flex h-9.5 items-center justify-between rounded-full bg-zinc-600 ps-4 focus-within:ring-3 focus-within:ring-focus dark:bg-zinc-800">
           <label htmlFor="newsletter-email" className="sr-only">
             {t("emailLabel")}
           </label>
@@ -89,7 +91,10 @@ export function NewsletterForm() {
           <button
             type="submit"
             disabled={isPending}
-            className="flex h-full items-center gap-2.5 rounded-full bg-maroon-50 px-4 text-sm font-medium text-maroon-700 transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-soft-pink-300 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-soft-pink-300 dark:text-zinc-800"
+            className={cn(
+              "flex h-full items-center gap-2.5 rounded-full bg-primary-fade px-4 text-sm font-medium text-primary-saturated transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-primary dark:text-primary-foreground",
+              FOCUS_RING_CLASS_NAME,
+            )}
           >
             {t("subscribe")}
             <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />

@@ -2,7 +2,7 @@
 
 import { Bell } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useCallback, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 
 import { useDismiss } from "@/hooks/use-dismiss";
 import { useUnreadNotificationsCount } from "@/hooks/use-notifications";
@@ -21,25 +21,23 @@ export function NotificationsMenu({ triggerClassName }: { triggerClassName: stri
 
   // Ref
   const menuRef = useRef<HTMLDivElement>(null);
+  const panelId = useId();
 
   // Query
   const { data: unreadCount = 0 } = useUnreadNotificationsCount();
 
+  // Custom hooks
+  useDismiss({ ref: menuRef, isOpen, onDismiss: () => setIsOpen(false) });
+
   // Variables
-  const panelId = useId();
   const hasUnread = unreadCount > 0;
   const badgeText =
     unreadCount > MAX_BADGE_COUNT ? `${MAX_BADGE_COUNT}+` : String(unreadCount);
 
   // Functions
-  const closePanel = useCallback(() => setIsOpen(false), []);
-
   function togglePanel() {
     setIsOpen((isPanelOpen) => !isPanelOpen);
   }
-
-  // Custom hooks
-  useDismiss({ ref: menuRef, isOpen, onDismiss: closePanel });
 
   return (
     <div ref={menuRef} className="relative">

@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { FOCUS_RING_CLASS_NAME } from "@/lib/styles/focus-ring";
+import { cn } from "@/lib/utils";
 
 import { HeaderSearch } from "./header-search";
 import { LanguageSwitcher } from "./language-switcher";
@@ -15,8 +17,8 @@ export function Header() {
 
   return (
     <header>
-      <div className="flex h-22 items-center gap-4 bg-white px-9 py-4.5 dark:bg-zinc-800">
-        <Link href="/" className="shrink-0">
+      <div className="flex h-22 items-center gap-4 bg-plain px-9 py-4.5 dark:bg-subtle">
+        <Link href="/" className={cn("shrink-0 rounded-md", FOCUS_RING_CLASS_NAME)}>
           <Image
             src="/images/logo.png"
             alt={t("logoAlt")}
@@ -28,7 +30,7 @@ export function Header() {
 
         <HeaderSearch />
 
-        <div className="flex h-full items-center text-zinc-700 dark:text-zinc-50">
+        <div className="flex h-full items-center text-plain">
           <LoginMenu />
           <UserActions />
           <LanguageSwitcher />

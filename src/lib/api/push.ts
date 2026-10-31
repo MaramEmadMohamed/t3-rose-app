@@ -1,4 +1,4 @@
-import { apiRequest } from "./api-client";
+import { requestApi } from "./api-client";
 
 type VapidPublicKeyResponse = {
   payload: {
@@ -20,27 +20,27 @@ const PUSH_PATH = "/api/notifications";
 
 // Public endpoint. A 404 means push is not configured on the server.
 export async function getVapidPublicKey() {
-  const response = await apiRequest<VapidPublicKeyResponse>(
+  const response = await requestApi<VapidPublicKeyResponse>(
     `${PUSH_PATH}/vapid-public-key`,
   );
   return response.payload.publicKey;
 }
 
 export async function getPushStatus() {
-  const response = await apiRequest<PushStatusResponse>(`${PUSH_PATH}/push-status`);
+  const response = await requestApi<PushStatusResponse>(`${PUSH_PATH}/push-status`);
   return response.payload;
 }
 
 // The API upserts by endpoint, so sending the same subscription twice is safe.
 export function savePushSubscription(subscription: PushSubscriptionJSON) {
-  return apiRequest(`${PUSH_PATH}/subscriptions`, {
+  return requestApi(`${PUSH_PATH}/subscriptions`, {
     method: "POST",
     body: JSON.stringify(subscription),
   });
 }
 
-export function removePushSubscription(endpoint: string) {
-  return apiRequest(`${PUSH_PATH}/subscriptions`, {
+export function deletePushSubscription(endpoint: string) {
+  return requestApi(`${PUSH_PATH}/subscriptions`, {
     method: "DELETE",
     body: JSON.stringify({ endpoint }),
   });

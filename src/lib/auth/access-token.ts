@@ -12,3 +12,9 @@ const TEST_USER_TOKEN =
 export function getAccessToken(): string | null {
   return TEST_USER_TOKEN || null;
 }
+
+// Notifications and push belong to a user, so they only call the API when
+// someone is logged in.
+export function isAuthenticated() {
+  return Boolean(getAccessToken());
+}

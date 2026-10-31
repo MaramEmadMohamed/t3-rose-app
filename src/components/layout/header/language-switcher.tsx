@@ -5,6 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+import { HEADER_CONTROL_CLASS_NAME, HEADER_DIVIDER_CLASS_NAME } from "./header-styles";
+
 export function LanguageSwitcher() {
   // Translation
   const t = useTranslations("Header");
@@ -23,13 +25,14 @@ export function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex h-full items-center border-s border-zinc-200 ps-4 dark:border-zinc-700">
+    <div className={cn("flex h-full items-center ps-4", HEADER_DIVIDER_CLASS_NAME)}>
       <button
         type="button"
         lang={nextLocale}
         onClick={handleSwitchLanguage}
         className={cn(
-          "rounded-md px-1 transition-colors hover:text-maroon-700 focus-visible:outline-2 focus-visible:outline-maroon-700 dark:hover:text-soft-pink-300",
+          "px-1",
+          HEADER_CONTROL_CLASS_NAME,
           nextLocale === "ar"
             ? "font-(family-name:--font-tajawal)"
             : "font-(family-name:--font-sarabun)",

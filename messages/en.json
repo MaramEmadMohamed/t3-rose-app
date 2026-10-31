@@ -65,12 +65,10 @@
 
   "Push": {
     "title": "Push notifications",
-    "status": {
-      "disabled": "Get updates about your orders, even when Rose is closed.",
-      "enabled": "Push notifications are on for this browser.",
-      "denied": "Notifications are blocked. To turn them on, allow notifications for this site in your browser settings.",
-      "unsupported": "Your browser doesn't support push notifications."
-    },
+    "statusDisabled": "Get updates about your orders, even when Rose is closed.",
+    "statusEnabled": "Push notifications are on for this browser.",
+    "statusDenied": "Notifications are blocked. To turn them on, allow notifications for this site in your browser settings.",
+    "statusUnsupported": "Your browser doesn't support push notifications.",
     "enable": "Enable",
     "disable": "Turn off",
     "enabledToast": "Push notifications are on",

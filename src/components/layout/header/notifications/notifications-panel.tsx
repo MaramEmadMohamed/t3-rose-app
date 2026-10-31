@@ -7,13 +7,18 @@ import {
   useNotificationActions,
   useNotifications,
 } from "@/hooks/use-notifications";
+import { FOCUS_RING_CLASS_NAME } from "@/lib/styles/focus-ring";
+import { cn } from "@/lib/utils";
 
 import { NotificationItem } from "./notification-item";
 import { NotificationsEmptyState } from "./notifications-empty-state";
+import { PanelStatusMessage } from "./panel-status-message";
 import { PushOptIn } from "./push-opt-in";
 
-const ACTION_BUTTON_CLASS_NAME =
-  "flex items-center gap-1.5 rounded-md p-1 transition-colors hover:text-maroon-700 disabled:cursor-not-allowed disabled:text-zinc-400 dark:hover:text-soft-pink-300";
+const ACTION_BUTTON_CLASS_NAME = cn(
+  "flex items-center gap-1.5 rounded-md p-1 transition-colors hover:text-primary-saturated disabled:cursor-not-allowed disabled:text-muted",
+  FOCUS_RING_CLASS_NAME,
+);
 
 export function NotificationsPanel({ unreadCount }: { unreadCount: number }) {
   // Translation
@@ -47,17 +52,17 @@ export function NotificationsPanel({ unreadCount }: { unreadCount: number }) {
   function renderContent() {
     if (isLoading) {
       return (
-        <p role="status" className="border-t border-zinc-300 p-4 text-sm text-zinc-500 dark:border-zinc-600">
+        <PanelStatusMessage role="status" className="text-soft">
           {t("loading")}
-        </p>
+        </PanelStatusMessage>
       );
     }
 
     if (isError) {
       return (
-        <p role="alert" className="border-t border-zinc-300 p-4 text-sm text-danger dark:border-zinc-600">
+        <PanelStatusMessage role="alert" className="text-danger">
           {t("loadError")}
-        </p>
+        </PanelStatusMessage>
       );
     }
 
@@ -75,16 +80,16 @@ export function NotificationsPanel({ unreadCount }: { unreadCount: number }) {
   return (
     <section
       aria-labelledby="notifications-title"
-      className="w-84 overflow-hidden rounded-xl bg-white shadow-soft dark:bg-zinc-800"
+      className="w-84 overflow-hidden rounded-xl bg-plain shadow-soft"
     >
       <h2
         id="notifications-title"
-        className="bg-maroon-700 p-4 text-xl font-bold text-white"
+        className="bg-primary-saturated p-4 text-xl font-bold text-inverse"
       >
         {hasUnread ? t("titleWithCount", { count: unreadCount }) : t("title")}
       </h2>
 
-      <div className="flex items-center justify-between p-2.5 text-xs font-semibold text-zinc-800 dark:text-zinc-50">
+      <div className="flex items-center justify-between p-2.5 text-xs font-semibold text-plain">
         <button
           type="button"
           onClick={handleClearAll}

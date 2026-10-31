@@ -8,14 +8,13 @@ import { toast } from "sonner";
 
 import {
   clearAllNotifications,
-  deleteNotification,
+  deleteNotificationById,
   getNotifications,
   getUnreadNotificationsCount,
   markAllNotificationsAsRead,
   markNotificationAsRead,
 } from "@/lib/api/notifications";
-
-import { useIsAuthenticated } from "./use-is-authenticated";
+import { isAuthenticated } from "@/lib/auth/access-token";
 
 export const notificationKeys = {
   all: ["notifications"] as const,
@@ -24,22 +23,18 @@ export const notificationKeys = {
 };
 
 export function useNotifications() {
-  const isAuthenticated = useIsAuthenticated();
-
   return useQuery({
     queryKey: notificationKeys.list(),
     queryFn: getNotifications,
-    enabled: isAuthenticated,
+    enabled: isAuthenticated(),
   });
 }
 
 export function useUnreadNotificationsCount() {
-  const isAuthenticated = useIsAuthenticated();
-
   return useQuery({
     queryKey: notificationKeys.unreadCount(),
     queryFn: getUnreadNotificationsCount,
-    enabled: isAuthenticated,
+    enabled: isAuthenticated(),
   });
 }
 
@@ -66,8 +61,8 @@ export function useNotificationActions() {
     mutationFn: markAllNotificationsAsRead,
     ...mutationCallbacks,
   });
-  const removeNotification = useMutation({
-    mutationFn: deleteNotification,
+  const deleteNotification = useMutation({
+    mutationFn: deleteNotificationById,
     ...mutationCallbacks,
   });
   const clearAll = useMutation({
@@ -75,5 +70,5 @@ export function useNotificationActions() {
     ...mutationCallbacks,
   });
 
-  return { markAsRead, markAllAsRead, removeNotification, clearAll };
+  return { markAsRead, markAllAsRead, deleteNotification, clearAll };
 }

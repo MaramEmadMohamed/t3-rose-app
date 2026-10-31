@@ -2,7 +2,9 @@ import { User } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
+import { HEADER_CONTROL_CLASS_NAME } from "./header-styles";
 import { LoginPopover } from "./login-popover";
 
 // The popover opens on hover and on keyboard focus, using CSS only.
@@ -14,7 +16,7 @@ export function LoginMenu() {
     <div className="group relative flex h-full items-center px-4">
       <Link
         href="/login"
-        className="flex items-center gap-1.5 rounded-md px-1 transition-colors hover:text-maroon-700 focus-visible:outline-2 focus-visible:outline-maroon-700 dark:hover:text-soft-pink-300"
+        className={cn("flex items-center gap-1.5 px-1", HEADER_CONTROL_CLASS_NAME)}
       >
         <User aria-hidden="true" className="size-5" />
         {t("login")}

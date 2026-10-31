@@ -3,9 +3,13 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 import { FOOTER_NAV_LINKS } from "@/lib/constants/navigation";
+import { FOCUS_RING_CLASS_NAME } from "@/lib/styles/focus-ring";
+import { cn } from "@/lib/utils";
 
 import { NewsletterForm } from "./newsletter-form";
 
+// The footer stays dark in both themes (Figma), so it uses fixed palette
+// colours instead of the theme tokens, which flip between light and dark.
 export function Footer() {
   // Translation
   const t = useTranslations("Footer");
@@ -42,12 +46,15 @@ export function Footer() {
           >
             {t("discoverTitle")}
           </h2>
-          <ul className="flex flex-col gap-1.5">
+          <ul className="flex flex-col items-start gap-1.5">
             {FOOTER_NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="font-medium text-zinc-100 transition-colors hover:text-soft-pink-300 focus-visible:text-soft-pink-300 focus-visible:outline-none"
+                  className={cn(
+                    "rounded-sm font-medium text-zinc-100 transition-colors hover:text-soft-pink-300",
+                    FOCUS_RING_CLASS_NAME,
+                  )}
                 >
                   {tNav(link.labelKey)}
                 </Link>

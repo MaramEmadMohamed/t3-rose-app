@@ -17,7 +17,7 @@ function readPushData(event) {
 
 // Only same-origin links are opened, so a push can never send the user
 // to another website.
-function toSafeUrl(link) {
+function getSafeUrl(link) {
   const url = new URL(link || DEFAULT_PATH, self.location.origin);
   return url.origin === self.location.origin
     ? url.href
@@ -31,7 +31,7 @@ self.addEventListener("push", (event) => {
     self.registration.showNotification(data.title || DEFAULT_TITLE, {
       body: data.message || data.body || "",
       icon: data.icon || DEFAULT_ICON,
-      data: { url: toSafeUrl(data.link || data.url) },
+      data: { url: getSafeUrl(data.link || data.url) },
     }),
   );
 });
@@ -56,5 +56,5 @@ async function focusOrOpenWindow(targetUrl) {
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  event.waitUntil(focusOrOpenWindow(toSafeUrl(event.notification.data?.url)));
+  event.waitUntil(focusOrOpenWindow(getSafeUrl(event.notification.data?.url)));
 });

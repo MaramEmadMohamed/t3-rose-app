@@ -12,7 +12,7 @@ export function MainNav() {
   return (
     <nav
       aria-label={t("mainNavigation")}
-      className="bg-maroon-700 px-4 dark:bg-soft-pink-200"
+      className="bg-primary-saturated px-4"
     >
       <ul className="flex justify-center gap-4">
         {MAIN_NAV_LINKS.map(({ href, labelKey, icon: Icon }) => (

@@ -1,4 +1,4 @@
-import { apiRequest } from "./api-client";
+import { requestApi } from "./api-client";
 
 export type NotificationType =
   | "ORDER"
@@ -35,36 +35,36 @@ const NOTIFICATIONS_PATH = "/api/notifications";
 const NOTIFICATIONS_PAGE_SIZE = 20;
 
 export async function getNotifications() {
-  const response = await apiRequest<NotificationsResponse>(
+  const response = await requestApi<NotificationsResponse>(
     `${NOTIFICATIONS_PATH}?limit=${NOTIFICATIONS_PAGE_SIZE}`,
   );
   return response.payload.data;
 }
 
 export async function getUnreadNotificationsCount() {
-  const response = await apiRequest<UnreadCountResponse>(
+  const response = await requestApi<UnreadCountResponse>(
     `${NOTIFICATIONS_PATH}/unread-count`,
   );
   return response.payload.unreadCount;
 }
 
 export function markNotificationAsRead(notificationId: string) {
-  return apiRequest(`${NOTIFICATIONS_PATH}/${notificationId}`, {
+  return requestApi(`${NOTIFICATIONS_PATH}/${notificationId}`, {
     method: "PATCH",
     body: JSON.stringify({ isRead: true }),
   });
 }
 
 export function markAllNotificationsAsRead() {
-  return apiRequest(`${NOTIFICATIONS_PATH}/mark-all-read`, { method: "PATCH" });
+  return requestApi(`${NOTIFICATIONS_PATH}/mark-all-read`, { method: "PATCH" });
 }
 
-export function deleteNotification(notificationId: string) {
-  return apiRequest(`${NOTIFICATIONS_PATH}/${notificationId}`, {
+export function deleteNotificationById(notificationId: string) {
+  return requestApi(`${NOTIFICATIONS_PATH}/${notificationId}`, {
     method: "DELETE",
   });
 }
 
 export function clearAllNotifications() {
-  return apiRequest(`${NOTIFICATIONS_PATH}/clear-all`, { method: "DELETE" });
+  return requestApi(`${NOTIFICATIONS_PATH}/clear-all`, { method: "DELETE" });
 }

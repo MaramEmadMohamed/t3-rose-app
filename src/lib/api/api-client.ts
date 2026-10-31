@@ -24,7 +24,7 @@ async function readErrorMessage(response: Response) {
   }
 }
 
-export async function apiRequest<TResponse>(
+export async function requestApi<TResponse>(
   path: string,
   init?: RequestInit,
 ): Promise<TResponse> {
@@ -43,5 +43,6 @@ export async function apiRequest<TResponse>(
     throw new ApiError(await readErrorMessage(response), response.status);
   }
 
-  return response.json();
+  const data: TResponse = await response.json();
+  return data;
 }

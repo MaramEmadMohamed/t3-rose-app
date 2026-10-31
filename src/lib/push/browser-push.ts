@@ -1,4 +1,5 @@
 const SERVICE_WORKER_PATH = "/sw.js";
+const BASE64_BLOCK_SIZE = 4;
 
 export type BrowserPushState = {
   isSupported: boolean;
@@ -23,9 +24,13 @@ export function isPushSupported() {
 }
 
 // The VAPID key comes as base64url text, but the Push API needs raw bytes.
-export function base64UrlToUint8Array(base64Url: string) {
-  const padding = "=".repeat((4 - (base64Url.length % 4)) % 4);
-  const base64 = (base64Url + padding).replace(/-/g, "+").replace(/_/g, "/");
+export function decodeBase64Url(base64Url: string) {
+  const missingPadding =
+    (BASE64_BLOCK_SIZE - (base64Url.length % BASE64_BLOCK_SIZE)) %
+    BASE64_BLOCK_SIZE;
+  const base64 = (base64Url + "=".repeat(missingPadding))
+    .replace(/-/g, "+")
+    .replace(/_/g, "/");
   const rawData = window.atob(base64);
 
   return Uint8Array.from(rawData, (character) => character.charCodeAt(0));
@@ -38,15 +43,15 @@ export function registerServiceWorker() {
   });
 }
 
-// Reads what the browser knows: is push supported, what did the user allow,
-// and is this browser already subscribed. It never asks for permission.
+// Only reads what the browser already knows. It never registers anything
+// and never asks for permission.
 export async function getBrowserPushState(): Promise<BrowserPushState> {
   if (!isPushSupported()) {
     return { isSupported: false, permission: "default", subscription: null };
   }
 
-  const registration = await registerServiceWorker();
-  const subscription = await registration.pushManager.getSubscription();
+  const registration = await navigator.serviceWorker.getRegistration();
+  const subscription = (await registration?.pushManager.getSubscription()) ?? null;
 
   return {
     isSupported: true,
@@ -67,6 +72,6 @@ export async function subscribeBrowserToPush(vapidPublicKey: string) {
 
   return registration.pushManager.subscribe({
     userVisibleOnly: true,
-    applicationServerKey: base64UrlToUint8Array(vapidPublicKey),
+    applicationServerKey: decodeBase64Url(vapidPublicKey),
   });
 }

@@ -1,4 +1,4 @@
-import { apiRequest } from "./api-client";
+import { requestApi } from "./api-client";
 
 type NewsletterSubscription = {
   id: string;
@@ -16,7 +16,7 @@ type SubscribeToNewsletterResponse = {
 };
 
 export function subscribeToNewsletter(email: string) {
-  return apiRequest<SubscribeToNewsletterResponse>("/api/subscriptions", {
+  return requestApi<SubscribeToNewsletterResponse>("/api/subscriptions", {
     method: "POST",
     body: JSON.stringify({ email }),
   });

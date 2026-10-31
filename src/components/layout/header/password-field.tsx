@@ -4,9 +4,10 @@ import { Eye, EyeOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
+import { FOCUS_RING_CLASS_NAME } from "@/lib/styles/focus-ring";
 import { cn } from "@/lib/utils";
 
-import { LOGIN_INPUT_CLASS_NAME } from "./login-field-styles";
+import { LOGIN_INPUT_CLASS_NAME } from "./header-styles";
 
 export function PasswordField({ id }: { id: string }) {
   // Translation
@@ -35,7 +36,10 @@ export function PasswordField({ id }: { id: string }) {
           type="button"
           onClick={togglePasswordVisibility}
           aria-label={isPasswordVisible ? t("hidePassword") : t("showPassword")}
-          className="absolute inset-y-0 end-0 flex items-center px-4 text-zinc-400 hover:text-zinc-600"
+          className={cn(
+            "absolute inset-y-0 end-0 flex items-center rounded-xl px-4 text-muted hover:text-default",
+            FOCUS_RING_CLASS_NAME,
+          )}
         >
           {isPasswordVisible ? (
             <Eye aria-hidden="true" className="size-5" />
