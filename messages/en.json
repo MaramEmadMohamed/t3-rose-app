@@ -1,0 +1,96 @@
+{
+  "common": {
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode",
+      "system": "System Mode"
+    },
+    "locale": {
+      "en": "English",
+      "ar": "Arabic"
+    }
+  },
+
+  "HomePage": {
+    "title": "Welcome to Rose App",
+    "description": "Discover our beautiful collection of fresh roses."
+  },
+
+  "Navigation": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "contact": "Contact",
+    "about": "About",
+    "termsAndConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "faqs": "FAQs"
+  },
+
+  "Header": {
+    "logoAlt": "Rose home",
+    "searchLabel": "Search products",
+    "searchPlaceholder": "What awesome gift are you looking for?",
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "emailPlaceholder": "user@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "********",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "forgotPassword": "Forgot your password?",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "switchLanguage": "العربية",
+    "mainNavigation": "Main navigation"
+  },
+
+  "Notifications": {
+    "bellLabel": "Notifications",
+    "bellLabelWithCount": "Notifications, {count} unread",
+    "title": "Notifications",
+    "titleWithCount": "Notifications ({count})",
+    "clearAll": "Clear all notifications",
+    "markAllAsRead": "Mark all as read",
+    "markAsRead": "Mark as read",
+    "delete": "Delete notification",
+    "optionsLabel": "Notification options",
+    "empty": "No notifications to display.",
+    "loading": "Loading notifications…",
+    "loadError": "We couldn't load your notifications.",
+    "actionError": "Something went wrong. Please try again."
+  },
+
+  "Push": {
+    "title": "Push notifications",
+    "statusDisabled": "Get updates about your orders, even when Rose is closed.",
+    "statusEnabled": "Push notifications are on for this browser.",
+    "statusDenied": "Notifications are blocked. To turn them on, allow notifications for this site in your browser settings.",
+    "statusUnsupported": "Your browser doesn't support push notifications.",
+    "enable": "Enable",
+    "disable": "Turn off",
+    "enabledToast": "Push notifications are on",
+    "disabledToast": "Push notifications are off",
+    "deniedToast": "Notifications are blocked. You can allow them from your browser settings.",
+    "errorToast": "We couldn't update push notifications. Please try again."
+  },
+
+  "Footer": {
+    "logoAlt": "Rose",
+    "brandName": "Rose E-Commerce App",
+    "rightsReserved": "All rights reserved | {year}",
+    "discoverTitle": "Discover our website",
+    "newsletterTitle": "Get <highlight>20%</highlight> Off Discount Coupon",
+    "newsletterSubtitle": "By subscribing to our newsletter",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter Your Email",
+    "subscribe": "Subscribe",
+    "subscribeSuccess": "You have subscribed to our newsletter",
+    "alreadySubscribed": "This email is already subscribed",
+    "genericError": "Something went wrong. Please try again.",
+    "emailRequired": "Please enter your email",
+    "emailInvalid": "Please enter a valid email address"
+  }
+}

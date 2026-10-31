@@ -1,0 +1,96 @@
+{
+  "common": {
+    "theme": {
+      "light": "الوضع الفاتح",
+      "dark": "الوضع الداكن",
+      "system": "وضع النظام"
+    },
+    "locale": {
+      "en": "الإنجليزية",
+      "ar": "العربية"
+    }
+  },
+
+  "HomePage": {
+    "title": "أهلاً بك في تطبيق روز",
+    "description": "مشروع الواجهة الأمامية الحديث الخاص بك."
+  },
+
+  "Navigation": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "contact": "تواصل معنا",
+    "about": "من نحن",
+    "termsAndConditions": "الشروط والأحكام",
+    "privacyPolicy": "سياسة الخصوصية",
+    "faqs": "الأسئلة الشائعة"
+  },
+
+  "Header": {
+    "logoAlt": "الصفحة الرئيسية لروز",
+    "searchLabel": "ابحث عن المنتجات",
+    "searchPlaceholder": "ما الهدية الرائعة التي تبحث عنها؟",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "emailPlaceholder": "user@example.com",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "********",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "wishlist": "المفضلة",
+    "cart": "سلة التسوق",
+    "switchLanguage": "English",
+    "mainNavigation": "التنقل الرئيسي"
+  },
+
+  "Notifications": {
+    "bellLabel": "الإشعارات",
+    "bellLabelWithCount": "الإشعارات، {count} غير مقروءة",
+    "title": "الإشعارات",
+    "titleWithCount": "الإشعارات ({count})",
+    "clearAll": "مسح كل الإشعارات",
+    "markAllAsRead": "تعليم الكل كمقروء",
+    "markAsRead": "تعليم كمقروء",
+    "delete": "حذف الإشعار",
+    "optionsLabel": "خيارات الإشعار",
+    "empty": "لا توجد إشعارات لعرضها.",
+    "loading": "جارٍ تحميل الإشعارات…",
+    "loadError": "تعذّر تحميل الإشعارات.",
+    "actionError": "حدث خطأ ما، حاول مرة أخرى."
+  },
+
+  "Push": {
+    "title": "إشعارات المتصفح",
+    "statusDisabled": "تابع آخر تحديثات طلباتك، حتى عندما يكون موقع روز مغلقًا.",
+    "statusEnabled": "إشعارات المتصفح مفعّلة على هذا المتصفح.",
+    "statusDenied": "الإشعارات محظورة. لتفعيلها، اسمح بالإشعارات لهذا الموقع من إعدادات المتصفح.",
+    "statusUnsupported": "متصفحك لا يدعم إشعارات المتصفح.",
+    "enable": "تفعيل",
+    "disable": "إيقاف",
+    "enabledToast": "تم تفعيل إشعارات المتصفح",
+    "disabledToast": "تم إيقاف إشعارات المتصفح",
+    "deniedToast": "الإشعارات محظورة. يمكنك السماح بها من إعدادات المتصفح.",
+    "errorToast": "تعذّر تحديث إشعارات المتصفح. حاول مرة أخرى."
+  },
+
+  "Footer": {
+    "logoAlt": "روز",
+    "brandName": "تطبيق روز للتسوق الإلكتروني",
+    "rightsReserved": "جميع الحقوق محفوظة | {year}",
+    "discoverTitle": "اكتشف موقعنا",
+    "newsletterTitle": "احصل على كوبون خصم <highlight>20%</highlight>",
+    "newsletterSubtitle": "عند الاشتراك في نشرتنا البريدية",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشترك",
+    "subscribeSuccess": "تم اشتراكك في النشرة البريدية بنجاح",
+    "alreadySubscribed": "هذا البريد الإلكتروني مشترك بالفعل",
+    "genericError": "حدث خطأ ما، حاول مرة أخرى.",
+    "emailRequired": "من فضلك أدخل بريدك الإلكتروني",
+    "emailInvalid": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا"
+  }
+}
