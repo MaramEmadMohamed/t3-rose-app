@@ -11,15 +11,17 @@ function Textarea({
       data-slot="textarea"
       className={cn(
         // Base
-        "peer w-full min-h-18.75 resize-none rounded-lg border px-2.5 py-2 text-sm",
-        "bg-[#3f3f46] text-white placeholder:text-[#85858f]",
-        "border-[#52525b]",
+        "peer w-full min-h-37.5 max-h-80 resize-y rounded-lg border px-2.5 py-2 text-sm",
+
+        // Light mode
+        "bg-white text-zinc-900 placeholder:text-zinc-400",
+        "border-zinc-300",
 
         // Transition
-        "transition-all duration-200 outline-none",
+        "transition-colors duration-200 outline-none",
 
         // Hover
-        "hover:border-[#71717a]",
+        "hover:border-zinc-400",
 
         // Focus
         "focus-visible:border-[#ffa3b9]",
@@ -27,19 +29,24 @@ function Textarea({
 
         // Error
         "aria-invalid:border-red-500",
-        "aria-invalid:text-white",
         "aria-invalid:focus-visible:ring-red-500/20",
 
         // Disabled
         "disabled:cursor-not-allowed",
-        "disabled:bg-[#18181b]",
-        "disabled:border-[#18181b]",
-        "disabled:text-[#71717a]",
-        "disabled:placeholder:text-[#52525b]",
+        "disabled:bg-zinc-100",
+        "disabled:border-zinc-200",
+        "disabled:text-zinc-400",
+        "disabled:placeholder:text-zinc-400",
 
-        // Light mode
-        "dark:bg-[#3f3f46] dark:border-[#52525b]",
+        // Dark mode
+        "dark:bg-[#3f3f46] dark:text-white",
+        "dark:placeholder:text-[#85858f]",
+        "dark:border-[#52525b]",
         "dark:hover:border-[#71717a]",
+        "dark:disabled:bg-[#18181b]",
+        "dark:disabled:border-[#18181b]",
+        "dark:disabled:text-[#71717a]",
+        "dark:disabled:placeholder:text-[#52525b]",
 
         className
       )}
